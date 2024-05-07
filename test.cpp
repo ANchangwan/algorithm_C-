@@ -1,11 +1,14 @@
 #include <bits/stdc++.h>
+#include <string.h>  
 using namespace std;
 
-string solution(string myString) {
-    string answer = myString;
-    for(int i=0; i<answer.size(); i++){
-        answer[i] = tolower(answer[i]);
-    }
+int main() {
+    char str1[] = "BlockDMask. He is a smart man";
+	char str2[] = "smart";
 	
-    return answer;
+
+
+
+	
+    return 0;
 }
