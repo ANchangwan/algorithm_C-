@@ -1,33 +1,76 @@
-#include <iostream>
-#include <vector>
+// #include <bits/stdc++.h>
 
-// prefixSum 함수 정의
-vector<int> prefixSum(const vector<int>& input) {
-    vector<int> result(input.size(), 0);
-    if (input.empty()) return result;  // 빈 입력 처리
+// using namespace std;
 
-    // result[0] = input[0];  // 첫 번째 원소는 그대로
+// int main(){
+//     random_device rd;
+//     mt19937 g(rd());
+//     int n;
+  
+//     // vector<int> height = {20,7,23,19,10,15,25,8,13};
+//     vector<int> height;
+    
+//     for(int i=0; i<9; i++){
+//        cin >> n;
+//       height.push_back(n);
+//     }
 
-    // 나머지 원소들에 대해 이전 원소들의 합을 계산
-    for (size_t i = 0; i < input.size(); i++) {
-        result[i] = result[i - 1] + input[i];
+//     vector<int> arr;
+//     bool found = false;
+    
+//     while(!found){
+//         shuffle(height.begin(), height.end(),g);
+//         vector<int>temp;
+//         int sum = 0;
+
+//         for(int num:height){
+//             if(temp.size() == 7){
+//                 break;
+//             }
+//             if(sum + num <= 100){
+//                 temp.push_back(num);
+//                 sum+=num;
+//             }
+//         }
+//         if(sum == 100){
+//             arr = temp;
+//             found = true;
+//         }
+
+//     }
+//     sort(arr.begin(), arr.end());
+
+//     for(int res : arr){
+//         cout << res << endl;
+//     }
+//    return 0;
+// }
+
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int a[9];
+
+int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    for(int i=0; i< 9; i++){
+        cin >> a[i];
     }
+    sort(a, a+9);
+    do{
+        for(int i : a) cout << i << " ";
+        cout << "\n";
+        int sum = 0;
+        for(int i=0; i<7; i++) sum+=a[i];
 
-    return result;
-}
-
-int main() {
-    std::vector<int> input = {1, 2, 3, 4, 5};
-
-    // prefixSum 함수 호출
-    std::vector<int> result = prefixSum(input);
-
-    // 결과 출력
-    std::cout << "Prefix Sum: ";
-    for (const auto& val : result) {
-        std::cout << val << " ";
-    }
-    std::cout << std::endl;
-
+        if(sum == 100)break;
+    }while(next_permutation(a,a+9));
+     
+    for(int i=0; i<7;i++) cout << a[i] << "\n";
+    
     return 0;
 }

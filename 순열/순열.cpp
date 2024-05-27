@@ -9,4 +9,5 @@ int main(){
         cout << "\n";
 
     }while(next_permutation(a, a+3));
+    return 0;
 }
