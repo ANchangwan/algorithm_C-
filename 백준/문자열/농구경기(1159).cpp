@@ -1,7 +1,5 @@
-
 #include <bits/stdc++.h>
 using namespace std;
-
 
 int N;
 map<string, int> mp;
@@ -26,7 +24,7 @@ int main(){
     }
     for(int i=0; i<26; i++){
         if(arr[i] >= 5){
-            cout << char('a'+i) <<"";
+            cout << 'a'+i <<"";
             cnt++;
         } 
     }
