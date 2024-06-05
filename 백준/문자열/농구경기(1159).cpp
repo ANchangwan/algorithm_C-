@@ -2,12 +2,8 @@
 using namespace std;
 
 int N;
-map<string, int> mp;
-vector<char>str = {};
-string st;
-int arr[27] = {0};
-
-int cnt = 0;
+string st,ret;
+int arr[26];
 
 int main(){
     ios_base::sync_with_stdio(false);
@@ -16,19 +12,17 @@ int main(){
     cin >> N;
     for(int i=0; i <N; i++){
         cin >> st;
-        str.push_back(st[0]);
+        arr[st[0] - 'a']++;
     }
-    sort(str.begin(), str.end());
-    for(int i=0; i<str.size();i++){
-        arr[str[i] - 'a']++;
-    }
+    
     for(int i=0; i<26; i++){
         if(arr[i] >= 5){
-            cout << 'a'+i <<"";
-            cnt++;
+            ret += i + 'a';
+     
         } 
     }
-    if(cnt == 0) cout << "PREDAJA";
+    if(ret.size()) cout << ret << "\n";
+    else cout << "PREDAJA";
 
     return 0;
 
