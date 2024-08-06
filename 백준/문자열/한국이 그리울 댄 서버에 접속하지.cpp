@@ -19,4 +19,3 @@ int main(){
     }
     return 0;
 } 
-/// g++ -std=c++14 -Wall test.cpp -o test.out
