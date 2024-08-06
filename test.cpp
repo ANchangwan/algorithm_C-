@@ -1,22 +1,25 @@
 #include<bits/stdc++.h> 
 using namespace std;   
-int n; 
-string s, ori_s, pre, suf; 
-int main(){
-    cin >> n;
-    cin >> s;
-    int find = s.find("*");
-    pre = s.substr(0, find);
-    suf = s.substr(find+1);
-    for(int i = 0; i < n; i++){
-        cin >> ori_s;
-        if(pre.size() + suf.size() > ori_s.size()){
-            cout << "NE\n";
-        }else{
-            if(ori_s.substr(0, pre.size()) == pre && ori_s.substr(ori_s.size() - suf.size()) == suf) cout << "DA\n";
-            else cout << "NE\n";
-        }
+int N,K;
+int maxSum=0;
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    cin >> N >> K;
+    vector<int> arr(N);
+    for(int i = 0; i < N; i++){
+        cin >> arr[i];
     }
+    do{ 
+        int sum = 0;
+        for(int i=0; i<K; i++) {
+            sum += arr[i];
+        }
+        maxSum = max(maxSum, sum);
+        cout << maxSum << endl;
+    }while(next_permutation(arr.begin(), arr.end()));
+    cout << maxSum << endl;
     return 0;
 } 
 /// g++ -std=c++14 -Wall test.cpp -o test.out
