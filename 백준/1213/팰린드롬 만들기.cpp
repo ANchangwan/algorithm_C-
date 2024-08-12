@@ -7,9 +7,7 @@ int main() {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
 	cin >> s;
-	 for (char a : s) {
-        cnt[static_cast<unsigned char>(a)]++;
-    }
+	for(char a : s)cnt[a]++;
 	for(int i = 'Z'; i >= 'A'; i--){
 		if(cnt[i]){
 			if(cnt[i] & 1){
@@ -26,5 +24,6 @@ int main() {
 	if(mid)ret.insert(ret.begin() + ret.size() / 2, mid);
 	if(flag == 2)cout << "I'm Sorry Hansoo\n";
 	else cout << ret << "\n"; 
-    return 0;
 }
+
+// map을 사용하니까 복잡해짐 -> couting array 사용
