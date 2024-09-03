@@ -1,20 +1,23 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-string s;
-map<char, int> mp;
-int main(){
-	ios_base::sync_with_stdio(false);
-	cin.tie(NULL);cout.tie(NULL);
-	cin >> s;
-	for(int i=0; i<26; i++){
-        mp.insert({char(97+i),0});
+int n,m,cnt;
+int a[15001];
+int main() {
+    ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+    cin >> n >> m;
+    for(int i=0; i<n; i++) cin >> a[i];
+
+    for(int i=0; i<n; i++){
+        for(int j=i+1; j<n; j++){
+            if(a[i]+ a[j] == m) cnt++;
+        }
     }
-	for(auto i : s){
-		mp[i]++;
-	}
-	for(int i=0; i < 26; i++){
-        cout << mp[char(97+i)] << " ";
-    }
-	return 0;
-}
+ 
+    cout << cnt << "\n";
+    
+    return 0;
+} 
+
+
+   
