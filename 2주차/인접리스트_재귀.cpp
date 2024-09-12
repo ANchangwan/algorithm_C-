@@ -5,15 +5,17 @@ using namespace std;
 vector<int> arr[V];
 int visited[V];
 
-void go(int idx){
+int go(int idx){
     cout << idx << "\n";
     visited[idx] = 1;
     for(int there : arr[idx]){
         if(visited[there]) continue;
         go(there);
     }
-	return;
+
+
 }
+
 
 int main(){
     arr[1].push_back(2);
