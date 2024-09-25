@@ -1,22 +1,15 @@
 #include <bits/stdc++.h>
 using namespace std;
-int t,n;
-
+int n,m, a[104][104],visited[104][104];
+vector<pair<int,int>> c;
+queue<pair<int,int>> q;
 int main(){
-    ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
-    cin >> t;
-    while(t--){
-        cin >> n;
-        int ret2=0, ret5=0;
-        for(int i = 2; i <=n; i*=2){
-            ret2+= n / i;
+    cin >> n >> m;
+    for(int i = 0;i < n; i++){
+        for(int j = 0; j < m; j++){
+            cin >> a[i][j];
+            if(a[i][j] == 1) c.push_back({i,j});  
         }
-        for(int i = 5; i<=n; i*=5){
-            ret5+=n/i;
-        }
-        cout << min(ret2,ret5) << "\n";
     }
-    
 
-    return 0;
 }
