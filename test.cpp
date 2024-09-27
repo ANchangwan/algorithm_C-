@@ -1,35 +1,23 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
-
-int n, m,a,b,idx,ret, visited[10004],dp[10004],mx;
-vector<int>adj[10004];
-
-int dfs(int here){
-    visited[here] = 1;
-    int ret = 1;
-    for(int there:adj[here]){
-        if(visited[there]) continue;
-        ret+= dfs(there);
-    }
-    return ret;
-}
-
+int a[10],sum=100;
+vector<int>res;
 
 int main(){
-    cin >> n >> m;
-    for(int i=0; i <m;i++){
-        cin >> a >> b;
-        adj[b].push_back(a);
+    ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+    for(int i=0;i <9; i++){
+        cin >> a[i];
+        sum += a[i];
     }
-    for(int i =1; i<=n; i++){
-        memset(visited, 0, sizeof(visited));
-        dp[i] = dfs(i);
-        mx = max(dp[i], mx);
+    for(int i =0; i<9;i++){
+        for(int j=0; j < i; j++){
+            if(sum - a[i] - a[j] == 100){
+                for(int k=0;k<j;k++){
+                    if (k == i || k == j) continue;
+                    cout << a[k] << "\n";
+                }
+            }
+        }
     }
-
-    
-    for (int i = 1; i <= n; i++) if(mx == dp[i]) cout << i << " "; 
-    
-    
     return 0;
 }
