@@ -2,18 +2,20 @@
 using namespace std;
 
 int n;
+bool check;
 string s,ret;
-int a[104];
+map<char,int> mp;
 int main(){
     ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
     cin >> n;
-    for(int i =0; i < n;i++){
+    for(int i =0; i<n; i++){
         cin >> s;
-        a[s[0] - 'a']++;
+        mp[s[0]]++;
     }
-
-    for(int i = 0; i <26; i++){
-        if(a[i] >= 5) ret += i + 'a';
+    for(auto it : mp){
+        if(it.second >= 5){
+            ret += it.first;
+        }
     }
     if(ret.size()) cout << ret << "\n";
     else cout << "PREDAJA" << "\n";
