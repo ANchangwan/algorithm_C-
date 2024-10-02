@@ -1,28 +1,48 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int n,m;
-string s,s2;
-map<string,int>mp;
-map<int, string>mp2;
-vector<string> ret;
-int main(){
-    cin >> n >> m;
-    for(int i =0; i<n; i++){
-        cin >> s;
-        mp[s] = i+1;
-        mp2[i+1] = s;
-    }
-    
-    for(int i=0; i<m; i++){
-        cin >> s2;
-        if(atoi(s2.c_str())){
-            ret.push_back(mp2[atoi(s2.c_str())]);
-        }else{
-            ret.push_back(to_string(mp[s2]));
+
+int n, a[4], visited[100][100][100];
+int _a[6][3] = {
+	{9, 3, 1}, 
+	{9, 1, 3}, 
+	{3, 1, 9}, 
+	{3, 9, 1}, 
+	{1, 3, 9}, 
+	{1, 9, 3}
+};
+
+struct A{
+    int a,b,c;
+};
+queue<A> q;
+int solve(int x, int y, int z){
+    visited[x][y][z] = 1;
+    q.push({x, y, z});
+ 
+    while(q.size()){
+        int nx = q.front().a;
+        int ny = q.front().b;
+        int nz = q.front().c;
+        q.pop();
+        if(visited[0][0][0]) break;
+        for(int i =0; i < 6; i++){
+            int ma = max(0, nx - _a[i][0]);
+            int mb = max(0, ny - _a[i][1]);
+            int mc = max(0, nz - _a[i][2]);
+            if(visited[ma][mb][mc]) continue;
+            visited[ma][mb][mc] = visited[nx][ny][nz] + 1;
+            q.push({ma,mb,mc});
         }
+
     }
-   
-    for(string res : ret) cout << res << "\n";
+    return visited[0][0][0] - 1;
+}
+
+int main(){
+    cin >> n;
+    for(int i =0; i<n; i++) cin >> a[i];
+    cout << solve(a[0], a[1], a[2]) << "\n";
+
     return 0;
 }
