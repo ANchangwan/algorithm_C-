@@ -38,6 +38,7 @@ int main(){
             if(a[i][j] == 0) wallList.push_back({i, j});
         }
     }
+    
     for(int i = 0; i < wallList.size(); i++){
         for(int j = 0; j < i; j++){
             for(int k = 0; k < j; k++){

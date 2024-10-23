@@ -7,7 +7,6 @@ int dx[4] = {0,1,0,-1};
 
 void go(int y,int x){
     visited[y][x] = 1;
-    // cout << y << " : " << x << "\n";
     if(a[y][x] == 1){
         v.push_back({y,x});
         return;
