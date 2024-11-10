@@ -1,0 +1,60 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.29"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "_C__",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "_C__::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-_C__-Debug-e4f248255c0cc1f0ab6c.json",
+					"name" : "_C__",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/waney/Documents/project/\u110b\u1161\u11af\u1100\u1169\u1105\u1175\u110c\u1173\u11b7 C++/cmake-build-debug",
+		"source" : "/Users/waney/Documents/project/\u110b\u1161\u11af\u1100\u1169\u1105\u1175\u110c\u1173\u11b7 C++"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}
