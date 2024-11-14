@@ -26,10 +26,10 @@ int main(){
 	for(int i =0; i < r; i++){
 		for(int j =0; j < c; j++){
 			cin >> a[i][j];
-            
 		}
 	}
-	
+	go(0, 0, 1 << (int)(a[0][0] - 'A'), 1);
+	cout << ret << "\n";
 
 	return 0;
 }

@@ -10,7 +10,6 @@ void go(int y, int x, int cnt){
         ny = y + dy[i], nx = x + dx[i];
         if(ny < 0 || ny >= R || nx < 0 || nx >= C) continue;
         int next = (int)(a[ny][nx] - 'A');
-        
         if(visited[next] == 0){
             visited[next] = 1; 
             go(ny, nx, cnt + 1);
