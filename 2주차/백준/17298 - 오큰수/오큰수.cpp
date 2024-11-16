@@ -6,9 +6,9 @@ stack<int>s;
 
 int main(){
     cin >> n;
+    memset(ret,-1,sizeof(ret));
     for(int i = 0; i < n; i++){
         cin >> a[i];
-        memset(ret,-1,sizeof(ret));
         while(s.size() && a[s.top()] < a[i]){
             ret[s.top()] = a[i];s.pop();
         }
