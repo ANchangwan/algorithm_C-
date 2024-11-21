@@ -31,7 +31,6 @@ int main(){
 				sum += a[j].cost;
 			}
 		}
-		exit(0);
 		if(b >= mp && c >= mf && d >= ms && e >= mv){
 			if(ret >= sum){
 				ret = sum;
