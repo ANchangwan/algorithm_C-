@@ -39,6 +39,7 @@ void go(int idx, int p, int f, int s, int v, int sum, vector<int> temp_v) {
        v + a[idx].v, 
        sum + a[idx].c, 
        temp_v);
+    temp_v.pop_back();
 }
 
 int main() {
