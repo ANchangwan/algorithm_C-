@@ -1,39 +1,36 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
-const int dy[] = {-1, 0, 1, 0};
-const int dx[] = {0, 1, 0, -1};
+int t, n, m, a, b, visited[1004], cnt; 
+vector<int> adj[1004];
 
-const int INF = -987654321;
-int r,c,visited,ret=INF;
-char a[24][24];
-
-void go(int y, int x, int cnt){
-    ret = max(ret, cnt);
-    for(int i =0; i < 4; i++){
-        int ny = y + dy[i];
-        int nx = x + dx[i];
-        if(ny < 0 || nx < 0 || ny >= r || nx >= c) continue;
-        int _next = (int)(a[ny][nx] - 'a');
-        if(visited & (1 << _next))continue;
-        visited |= (1<<_next);
-        go(ny,nx,cnt+1);
-        visited &= ~(1 << _next);
+void dfs(int here){
+    visited[here] = 1;
+    for(int there : adj[here]){
+        if(visited[there])continue;
+        dfs(there);
     }
     return;
 }
 
 int main(){
     ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
-    cin >> r >> c;
-    for(int y=0; y < r; y++){
-        for(int x=0; x < c; x++){
-            cin >> a[y][x];
+    cin >> t;
+    while(t--){
+        for(int i =0; i < 1004; i++) adj[i].clear();
+        fill(visited, visited + 1004, 0);
+        cnt =0;
+        cin >> n >> m;
+        for(int i =0; i < m; i++){
+            cin >> a >> b;
+            adj[a].push_back(b);
+            adj[b].push_back(a);
+        } 
+        for(int i = 1; i <= n; i++){
+            if(!visited[i]) {
+                dfs(i);
+                cnt++;
+            }
         }
     }
-
-    visited = (1 << (int)(a[0][0] - 'a'));
-    go(0,0,1);
-    cout << ret << "\n";
-    return 0;
 }
