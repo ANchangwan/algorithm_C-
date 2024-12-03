@@ -1,27 +1,33 @@
-#include<bits/stdc++.h>
+#include <stack>
+#include <string>
+#include<iostream>
 using namespace std;
 
 string s;
-int n,cnt,ret =-987654321,start;
-stack<char>st;
+int t;
+stack<int>stk;
+
+bool check(string s){
+    stack<char> stk;
+    for(char c : s){
+        if(c =='(') stk.push(c);
+        else{
+            if(!stk.empty()) stk.pop();
+            else return false;
+        }
+    }
+    return stk.empty();
+}
 
 
 int main(){
     ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
-    cin >> n >> s;
-    for(char c : s){
-        if(st.size() && st.top() == '(' && c == ')'){
-            cnt += 2;
-            st.pop();
-        }else if(st.size() && st.top() == ')' && c == '('){
-            while (!st.empty()) st.pop();
-            st.push(c);
-            cnt = 0;
-        }else{
-            st.push(c);
-        }
-        ret = max(ret, cnt);
+    cin >> t;
+    while(t--){
+        cin >> s;
+        if(check(s)) cout << "YES" << "\n";
+        else cout << "NO" << "\n";
     }
-    cout << cnt << "\n";
+
     return 0;
 }
