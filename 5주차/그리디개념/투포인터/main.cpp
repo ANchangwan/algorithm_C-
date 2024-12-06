@@ -1,5 +1,6 @@
 #include<bits/stdc++.h>
-using namespace std; int n, ret, x;
+using namespace std; 
+int n, ret, x;
 int main(){
     cin >> n;
     vector<int> a(n);
@@ -17,4 +18,6 @@ int main(){
         else if(a[l] + a[r] < x)l++;
     }
     cout << ret << "\n";
+
+    return 0;
 }
