@@ -14,7 +14,7 @@ int main() {
             } 
             reverse(ss.begin(), ss.end());
             if(T != ss){
-                for(int i : ss){
+                for(char i : ss){
                     stk.push(i);
                 }
             }
