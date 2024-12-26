@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
-
 using namespace std;
+
 int n,ret = 1,from,to;
 vector<pair<int, int>> v;
 int main(){
@@ -11,6 +11,7 @@ int main(){
 		v.push_back({to,from});
 	}
 	sort(v.begin(), v.end());
+	
 	
 	to = v[0].first;
 	from = v[0].second;
