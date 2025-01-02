@@ -5,21 +5,16 @@ int n, a[2000001], p, lo, hi, ret, sum;
 
 
 int main(){
-	scanf("%d", &n); 
-    for(int i=2; i<=n; i++){
-		if(che[i]) continue;
-		for(int j=2*i; j<=n; j+=i){
-			che[j] = 1;
-		}
+	int n,ret,x, e;
+	vector<int> v;
+	cin >> n;
+	for(int i =0; i < n; i++){
+		cin >> e;
+		v.push_back(e);
+	} 
+	cin >> x;
+	int r = n-1, l = 0;
+	while(l < r){
+		if(v[l] + v[r] > x) r--; 
 	}
-	for(int i=2; i<=n; i++){
-		if(!che[i]) a[p++] = i;
-	}  
-    while(1){
-        if(sum >= n) sum -= a[lo++];
-        else if(hi == p)break;
-        else sum += a[hi++];
-        if(sum == n) ret++;
-    } 
-    printf("%d\n", ret); 
 }

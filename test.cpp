@@ -1,41 +1,26 @@
-
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
-typedef pair<int,int> P;
-int n,l,r,ret,from, to;
-P L[100000004];
+typedef long long ll;
 
+ll n, x, ret;
 
 int main(){
 	ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
-	cin >> n;
-	for(int i =0; i < n; i++){
-		cin >> from >> to;
-		L[i] = P(from, to);
-	}
-	sort(L, L+n);
-	l = L[0].first; r = L[0].second;
-	for(int i  = 1; i < n; i++){
-		if(r < L[i].first){
-			ret += (r - l);
-			r = L[i].second;
-			l = L[i].first;
-		}else if( L[i].first<=r && r <= L[i].second){
-			r = L[i].second;
-		}
-	}
-	ret += (r - l);
-	cout << ret << "\n";
-	return 0;
+    scanf("%lld", &n);
+    vector<ll> v(n);
+    for(int i = 0; i < n; i++){
+        cin >> v[i]; 
+    }
+    scanf("%lld", &x);
+    sort(v.begin(), v.end());
+    int l = 0, r = n - 1;
+    while(l < r){
+        if(v[l] + v[r] == x) {
+            r--;
+            ret++;
+        }else if(v[l]+v[r] > x) r--;
+        else l++;
+    } 
+    cout << ret << "\n";
+    return 0;
 }
-
-
-
-// 7
-// 20 1
-// 2 1
-// 10 3
-// 100 2
-// 8 2
-// 5 20
-// 50 10
