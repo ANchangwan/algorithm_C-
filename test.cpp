@@ -1,26 +1,18 @@
 #include<bits/stdc++.h>
-using namespace std;
-typedef long long ll;
+using namespace std; 
 
-ll n, x, ret;
+string S, T,ret;
 
-int main(){
+int main (){
 	ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
-    scanf("%lld", &n);
-    vector<ll> v(n);
-    for(int i = 0; i < n; i++){
-        cin >> v[i]; 
-    }
-    scanf("%lld", &x);
-    sort(v.begin(), v.end());
-    int l = 0, r = n - 1;
-    while(l < r){
-        if(v[l] + v[r] == x) {
-            r--;
-            ret++;
-        }else if(v[l]+v[r] > x) r--;
-        else l++;
-    } 
-    cout << ret << "\n";
-    return 0;
+	cin >> S >> T;
+	for(char it : S){
+		ret += it;
+		if(ret.size() >= T.size() && ret.substr(ret.size() - T.size(), T.size()) == T){
+			ret.erase(ret.end() - T.size(), ret.end());
+		}
+	}
+	if(!ret.size()) cout << "FRULA" << "\n";
+	else cout << ret << "\n";
+	return 0;
 }
