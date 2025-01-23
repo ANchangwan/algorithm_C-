@@ -27,7 +27,8 @@ int main(){
                 cnt++;
                 v.erase(find(v.begin(), v.end(), pos));
             }
-            v.push_back(a[i]); visited[a[i]] = 1;
+            v.push_back(a[i]); 
+            visited[a[i]] = 1;
         }
     }
     cout << cnt << "\n";

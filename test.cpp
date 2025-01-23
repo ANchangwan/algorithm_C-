@@ -1,35 +1,40 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-int k, n, a[104], visited[104], cnt;
+
 const int INF = 987654321;
-vector<int> v;
-int main(){
-    ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
-    cin >> k >> n;
-    for(int i = 0; i < n; i++) cin >> a[i];
-    for(int i = 0; i < n; i++){
-        if(!visited[a[i]]){
-            if(v.size() == k){
-                int last_idx = 0, pos;
-                for(int _a : v){
-                    int here_pick = INF;
-                    for(int j = i + 1; j < n; j++){
-                        if(_a == a[j]){
-                            here_pick = j; break;
-                        }
-                    }
-                    if(last_idx < here_pick){
-                        last_idx = here_pick;
-                        pos = _a;
-                    }
-                }
-                visited[pos] = 0;
-                cnt++;
-                v.erase(find(v.begin(), v.end(), pos));
-            }
-            v.push_back(a[i]); visited[a[i]] = 1;
+int n, team[24][24], ret = INF;
+
+int go(vector<int> &a, vector<int> &b){
+    pair<int, int> ret;
+    for(int i=0; i < n/2; i++){
+        for(int j =0; j < n/2; j++){
+            if(i == j)continue;
+            ret.first += team[a[i]][a[j]];
+            ret.second += team[b[i]][b[j]];
         }
     }
-    cout << cnt << "\n";
+    return abs(ret.first - ret.second);
+}
+
+
+
+int main(){
+    ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+    cin >> n;
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            cin >> team[i][j];
+        }
+    }
+    for(int i = 0; i < (1 << n); i++){
+        if(__builtin_popcount(i) != n/2) continue;
+        vector<int>start,link;
+        for(int j = 0; j < n;j++){
+            if(i & (1 << j)) start.push_back(j);
+            else link.push_back(j);
+        }
+        ret = min(ret, go(start, link));
+    }
+    cout << ret << "\n";
     return 0;
 }
