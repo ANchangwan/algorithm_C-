@@ -29,5 +29,7 @@ int main() {
 		}
 		ret = min(ret, go(start, link)); 
     }
+	
     cout << ret << '\n';
+	return 0;
 } 
