@@ -1,5 +1,7 @@
-#include <bits/stdc++.h>
-using namespace std; 
+#include<string>
+#include<iostream>
+
+using namespace std;
 
 vector<string> splite(const string& input, string delimiter){
     vector<string> result;
@@ -12,12 +14,4 @@ vector<string> splite(const string& input, string delimiter){
     }
     result.push_back(input.substr(start));
     return result;
-}
-
-int main(){
-    string a = "hello world";
-    reverse(a.begin(), a.end());
-    cout << a << "\n";
-
-    return 0;
 }
